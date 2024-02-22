@@ -1,6 +1,10 @@
 ## Recipe Recommendation App
 This project aims to provide users with personalized recipe recommendations based on the ingredients they have. The app utilizes web scraping techniques to gather Cooking Mama recipes, implements a recommendation system using cosine similarity, and presents the recommendations through a Flask web application.
 
+<img width="870" alt="image" src="https://github.com/NiharikaAdari/Cooking-Mama-Recipe-Recommendations/assets/130190699/53b1658e-ca7d-4ee6-8221-87c01b985a27">
+
+<img width="907" alt="image" src="https://github.com/NiharikaAdari/Cooking-Mama-Recipe-Recommendations/assets/130190699/15b69771-e7af-4b51-929d-6c798704ebee">
+
 ## Purpose
 The purpose of this project is to offer users an easy and convenient way to discover new recipes based on the ingredients they already have at home. By leveraging Cooking Mama recipes and advanced recommendation algorithms, users can explore a variety of cooking options tailored to their preferences and available ingredients.
 
