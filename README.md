@@ -14,7 +14,7 @@ The purpose of this project is to offer users an easy and convenient way to disc
 
 ## Key Features
 
-- **Web Scraping:** The project scrapes Cooking Mama recipes from a wiki page to build a dataset of food items along with their ingredients and image URLs.
+- **Web Scraping:** The project scrapes Cooking Mama recipes from a wiki page to build a dataset of food items along with their ingredients and image URLs. https://cookingmama.fandom.com/wiki/Foods
 
 - **Recommendation System:** A recommendation system based on cosine similarity calculates the similarity between user-provided ingredients and recipe ingredients. This allows the app to suggest recipes that best match the user's input.
 
