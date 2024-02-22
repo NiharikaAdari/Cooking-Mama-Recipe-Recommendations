@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Recommendation</title>
+    <style>
+        body {
+            font-family: Verdana, sans-serif;
+            background-image: url("static/images/yellow.jpg"); 
+            background-size: cover; /* Ensures the background image covers the entire body */
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            border-style: dotted;
+            border-color: #f1c961;
+            border-width: 2px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #463a1e;
+            text-align: center;
+        }
+        
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 90%;
+            height: 130px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f9e1846c;
+            border: 1px solid #f3ead3;
+            border-style: dotted;
+        }
+        input[type="submit"] {
+            background-color: #fcc6ce;
+            color: white;
+            border: 1px solid #f7a4ab;
+            border-style: dotted;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        input[type="submit"]:hover {
+            background-color: #fcafb5;
+        }
+        .carousel {
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .card {
+            display: inline-block;
+            width: 250px;
+            margin: 0 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.315);
+            background-color: #9ce9ff;
+            overflow: auto; /* Prevent overflow */
+        }
+
+        .card img {
+            width: 100%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .card-content {
+            padding: 10px;
+            overflow: auto; /* Prevent overflow */
+        }
+        .recipe-info {
+            display: none;
+            position: absolute;
+            background-image: url("static/images/ingredients2.png"); 
+            background-size: cover; 
+            background-position: contain;
+            padding: 5px 10px 40px 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.397);
+            z-index: 1;
+            max-width: 300px;
+            text-align: left;
+            color: #000000;
+            overflow: auto;
+        }
+        .card:hover .recipe-info {
+            display: block;
+        }
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+        }
+
+        .modal-content {
+            margin: 10% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            background-color: #fefefe;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation-name: modalopen;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes modalopen {
+            from {opacity: 0}
+            to {opacity: 1}
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Modal popup button */
+        .popup-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #f7a4ab;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .popup-button:hover {
+            background-color: #fcafb5;
+        }
+
+        
+        /* Animation keyframes for bouncing effect */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px); /* Adjust the bounce height as needed */
+            }
+        }
+
+        /* Apply the animation to h2 element */
+        h2.bouncing {
+            animation: bounce 1s infinite;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <img src="static/images/bg.png" alt="Get Started Image" style="width: 100%; border-radius: 5px;">
+                <p style="text-align: center;">Input your ingredients and see what Cooking Mama recipes you can make!</p>
+                <button class="popup-button" onclick="startTyping()">Play!</button>
+            </div>
+        </div> -->
+        <h1><span id="typing-header"></span></h1>
+
+        <form action="/" method="post">
+            <label for="ingredients">Enter Ingredients: (separate by commas)</label><br>
+            <textarea id="ingredients" name="ingredients" rows="4" cols="50" placeholder="Enter ingredients here..."></textarea><br>
+            <input type="submit" value="Submit">
+        </form>
+        {% if user_input %}
+            <h2 class="bouncing">Recipes Recommended:</h2>
+            <div class="carousel">
+                {% for recipe in recommendations %}
+                    <div class="card">
+                        <img src="{{ recipe[1] }}" alt="{{ recipe[0] }}">
+                        <div class="card-content">
+                            <h3>{{ recipe[0] }}</h3>
+                            <div class="recipe-info">
+                                <h4>Ingredients:</h4>
+                                <ul>
+                                    {% for ingredient in recipes[recipe[0]]['ingredients'].split('\n') %}
+                                        <li>{{ ingredient }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <p>Similarity: {{ '%.2f' % recipe[2] }}</p>
+                            {% set similarity_count = similarity_counts[recipe[0]] %}
+                            <p class="ingredient-message">You have {{ similarity_count[0] }}/{{ similarity_count[1] }} ingredients</p>
+                        </div>
+                    </div>
+                {% endfor %}
+
+
+
+            </div>
+        {% endif %}
+    </div>
+    <!-- Helperbot -->
+    <div id="helperbot" style="position: fixed; bottom: 20px; right: 20px; background-color: #fff; border: 1px solid #ccc; padding: 10px; border-radius: 5px;">
+        <button onclick="convertToCommas()">Convert to Commas</button>
+    </div>
+    <script>
+
+        var modalShown = false;
+        window.onload = function() {
+            var recommendationsExist = "{{ recommendations_exist }}"; // Convert Python boolean to string
+            if (!modalShown && recommendationsExist === "False") {
+                modal.style.display = "block";
+                modalShown = true;
+            }
+        }
+
+        function convertToCommas() {
+            var textarea = document.getElementById('ingredients');
+            textarea.value = textarea.value.replace(/\n/g, ',').trim();
+            // Remove trailing comma if present
+            if (textarea.value.slice(-1) === ',') {
+                textarea.value = textarea.value.slice(0, -1);
+            }
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+            startTyping()
+        }
+
+        // Add event listener to form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "block";  // Display the modal when the page loads
+            document.getElementById('ingredients-form').addEventListener('submit', function() {
+                convertToCommas();
+                closeModal();
+            });
+        });
+
+        // JavaScript to simulate typing effect for the header
+        document.addEventListener('DOMContentLoaded', function () {
+            const headerText = "Recipe Recommendation";
+            const typingSpeed = 100; // Adjust typing speed as needed
+            let charIndex = 0;
+            const typingInterval = setInterval(function () {
+                document.getElementById('typing-header').textContent += headerText[charIndex];
+                charIndex++;
+                if (charIndex === headerText.length) {
+                    clearInterval(typingInterval);
+                }
+            }, typingSpeed);
+        });
+
+    //     function startTyping() {
+    //     var headerTextElement = document.getElementById('typing-header');
+    //     const headerText = "Cooking Mama - Recipe Recommendations";
+    //     const typingSpeed = 100; // Adjust typing speed as needed
+    //     let charIndex = 0;
+    //     const typingInterval = setInterval(function () {
+    //         headerTextElement.textContent += headerText[charIndex];
+    //         charIndex++;
+    //         if (charIndex === headerText.length) {
+    //             clearInterval(typingInterval);
+    //         }
+    //     }, typingSpeed);
+    // };
+
+
+        // Add event listener to form submission
+        document.getElementById('ingredients-form').addEventListener('submit', function() {
+            // Close the modal if it's open
+            closeModal();
+        });
+
+    </script>
+    
+</body>
+</html>
