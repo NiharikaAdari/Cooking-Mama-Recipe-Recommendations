@@ -14,12 +14,10 @@ The purpose of this project is to offer users an easy and convenient way to disc
 
 Hover over a recipe card to see the ingredients!
 
-
 <img width="592" alt="image" src="https://github.com/NiharikaAdari/Cooking-Mama-Recipe-Recommendations/assets/130190699/760fe825-9bae-448d-a82a-86a6a7c5f5f1">
 
 
 Click a recipe card to get the recipe!
-
 
 <img width="591" alt="image" src="https://github.com/NiharikaAdari/Cooking-Mama-Recipe-Recommendations/assets/130190699/0a1e37b3-febd-43bc-8cff-65889b39ed37">
 
