@@ -2,8 +2,7 @@
 This project aims to provide users with personalized recipe recommendations based on the ingredients they have. The app utilizes web scraping techniques to gather Cooking Mama recipes, implements a recommendation system using cosine similarity, and presents the recommendations through a Flask web application.
 
 
-![ezgif-7-1e1b2ac6a4](https://github.com/NiharikaAdari/Cooking-Mama-Recipe-Recommendations/assets/130190699/37ab3d11-fc0e-4a8e-8c96-fe527e88170a)
-
+![demo](https://github.com/NiharikaAdari/Cooking-Mama-Recipe-Recommendations/assets/130190699/7b3fa27f-5139-477a-a7f7-30ffe065ba1a)
 
 
 
@@ -26,6 +25,8 @@ Click a recipe card to get the recipe!
 - **Recommendation System:** A recommendation system based on cosine similarity calculates the similarity between user-provided ingredients and recipe ingredients. This allows the app to suggest recipes that best match the user's input.
 
 - **Flask Web Application:** The core functionality is wrapped into a user-friendly web application using Flask, allowing users to input their ingredients and receive recipe recommendations in real-time. Users can effortlessly input their available ingredients and receive personalized recipe suggestions instantly. The application boasts intuitive features such as a carousel scroll system for recipe cards, ensuring smooth navigation through recommended recipes. Additionally, a dynamic loading GIF keeps users engaged while waiting for their recommendations. Furthermore, the ingredient list hover feature provides users with quick insights into recipe details without navigating away from the main interface. These features collectively contribute to a seamless and enjoyable recipe discovery experience for our users.
+
+  ![fried-rice-cooking](https://github.com/NiharikaAdari/Cooking-Mama-Recipe-Recommendations/assets/130190699/0f9b012c-8c2e-4cac-aba3-4401ce725f32)
  
 - **OpenAI/ChatGPT Integration:** ChatGPT is used to generate detailed recipes based on user preferences and available ingredients, enhancing the variety and specificity of recipe recommendations.
 
