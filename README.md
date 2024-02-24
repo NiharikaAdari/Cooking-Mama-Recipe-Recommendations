@@ -10,10 +10,14 @@ This project aims to provide users with personalized recipe recommendations base
 ## Purpose
 The purpose of this project is to offer users an easy and convenient way to discover new recipes based on the ingredients they already have at home. By leveraging Cooking Mama recipes and advanced recommendation algorithms, users can explore a variety of cooking options tailored to their preferences and available ingredients.
 
-<img width="870" alt="image" src="https://github.com/NiharikaAdari/Cooking-Mama-Recipe-Recommendations/assets/130190699/53b1658e-ca7d-4ee6-8221-87c01b985a27">
+<img width="1233" alt="image" src="https://github.com/NiharikaAdari/Cooking-Mama-Recipe-Recommendations/assets/130190699/9ac4e807-dbf7-43f5-86df-79f92de9e016">
+
 
 Hover over a recipe card to see the ingredients!
-<img width="907" alt="image" src="https://github.com/NiharikaAdari/Cooking-Mama-Recipe-Recommendations/assets/130190699/15b69771-e7af-4b51-929d-6c798704ebee">
+<img width="592" alt="image" src="https://github.com/NiharikaAdari/Cooking-Mama-Recipe-Recommendations/assets/130190699/760fe825-9bae-448d-a82a-86a6a7c5f5f1">
+
+Click a recipe card to get the recipe!
+<img width="591" alt="image" src="https://github.com/NiharikaAdari/Cooking-Mama-Recipe-Recommendations/assets/130190699/0a1e37b3-febd-43bc-8cff-65889b39ed37">
 
 ## Key Features
 
@@ -22,6 +26,7 @@ Hover over a recipe card to see the ingredients!
 - **Recommendation System:** A recommendation system based on cosine similarity calculates the similarity between user-provided ingredients and recipe ingredients. This allows the app to suggest recipes that best match the user's input.
 
 - **Flask Web Application:** The core functionality is wrapped into a user-friendly web application using Flask, allowing users to input their ingredients and receive recipe recommendations in real-time.
+
 
 ## Technologies Used
 
@@ -34,6 +39,7 @@ Hover over a recipe card to see the ingredients!
 - **SciKit Learn, Cosine Similarity:** A mathematical technique used to measure the similarity between two non-zero vectors, employed in the recommendation system to compare ingredient lists.
 
 - **HTML/CSS/JavaScript:** Frontend technologies utilized for designing the user interface and enhancing the user experience.
+
 
 ## Usage
 Users can access the Recipe Recommendation App through their web browser. Upon visiting the site, they can input a list of ingredients they have on hand. The app then processes the input, calculates recipe recommendations based on similarity, and displays them along with relevant information such as recipe names, images, and ingredient matches.
