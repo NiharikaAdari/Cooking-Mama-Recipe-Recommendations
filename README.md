@@ -25,8 +25,6 @@ Click a recipe card to get the recipe!
 - **Recommendation System:** A recommendation system based on cosine similarity calculates the similarity between user-provided ingredients and recipe ingredients. This allows the app to suggest recipes that best match the user's input.
 
 - **Flask Web Application:** The core functionality is wrapped into a user-friendly web application using Flask, allowing users to input their ingredients and receive recipe recommendations in real-time. Users can effortlessly input their available ingredients and receive personalized recipe suggestions instantly. The application boasts intuitive features such as a carousel scroll system for recipe cards, ensuring smooth navigation through recommended recipes. Additionally, a dynamic loading GIF keeps users engaged while waiting for their recommendations. Furthermore, the ingredient list hover feature provides users with quick insights into recipe details without navigating away from the main interface. These features collectively contribute to a seamless and enjoyable recipe discovery experience for our users.
-
-  ![fried-rice-cooking](https://github.com/NiharikaAdari/Cooking-Mama-Recipe-Recommendations/assets/130190699/0f9b012c-8c2e-4cac-aba3-4401ce725f32)
  
 - **OpenAI/ChatGPT Integration:** ChatGPT is used to generate detailed recipes based on user preferences and available ingredients, enhancing the variety and specificity of recipe recommendations.
 
@@ -47,6 +45,10 @@ Click a recipe card to get the recipe!
 
 ## Usage
 Users can access the Recipe Recommendation App through their web browser. Upon visiting the site, they can input a list of ingredients they have on hand. The app then processes the input, calculates recipe recommendations based on similarity, and displays them along with relevant information such as recipe names, images, and ingredient matches.
+
+## Happy Cooking!
+
+ ![fried-rice-cooking](https://github.com/NiharikaAdari/Cooking-Mama-Recipe-Recommendations/assets/130190699/0f9b012c-8c2e-4cac-aba3-4401ce725f32)
 
 ## Future Enhancements
 - **User Authentication:** Implement user accounts to save favorite recipes and personalize recommendations. If a recipe is chosen, gather real recipe ingredient/cooking process data.
