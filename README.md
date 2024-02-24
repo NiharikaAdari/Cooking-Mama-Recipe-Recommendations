@@ -25,8 +25,9 @@ Click a recipe card to get the recipe!
 
 - **Recommendation System:** A recommendation system based on cosine similarity calculates the similarity between user-provided ingredients and recipe ingredients. This allows the app to suggest recipes that best match the user's input.
 
-- **Flask Web Application:** The core functionality is wrapped into a user-friendly web application using Flask, allowing users to input their ingredients and receive recipe recommendations in real-time.
-
+- **Flask Web Application:** The core functionality is wrapped into a user-friendly web application using Flask, allowing users to input their ingredients and receive recipe recommendations in real-time. Users can effortlessly input their available ingredients and receive personalized recipe suggestions instantly. The application boasts intuitive features such as a carousel scroll system for recipe cards, ensuring smooth navigation through recommended recipes. Additionally, a dynamic loading GIF keeps users engaged while waiting for their recommendations. Furthermore, the ingredient list hover feature provides users with quick insights into recipe details without navigating away from the main interface. These features collectively contribute to a seamless and enjoyable recipe discovery experience for our users.
+ 
+- **OpenAI/ChatGPT Integration:** ChatGPT is used to generate detailed recipes based on user preferences and available ingredients, enhancing the variety and specificity of recipe recommendations.
 
 ## Technologies Used
 
@@ -37,6 +38,8 @@ Click a recipe card to get the recipe!
 - **Beautiful Soup:** A Python library for pulling data out of HTML and XML files, essential for web scraping.
 
 - **SciKit Learn, Cosine Similarity:** A mathematical technique used to measure the similarity between two non-zero vectors, employed in the recommendation system to compare ingredient lists.
+
+- **OpenAI/ChatGPT:** A powerful natural language processing model used to generate detailed recipes based on user input and preferences.
 
 - **HTML/CSS/JavaScript:** Frontend technologies utilized for designing the user interface and enhancing the user experience.
 
